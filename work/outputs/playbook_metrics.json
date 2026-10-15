@@ -1,0 +1,126 @@
+{
+  "data": "FlyRank warehouse, month=2026-03; features 1-15 March, outcome 16-31 March",
+  "pages_scored": 75817,
+  "clients": 37,
+  "pages_in_queue": 8710,
+  "base_rate": 0.355,
+  "precision_at_k_grouped_5fold": {
+    "Random pick (base rate)": {
+      "P@10": 0.351,
+      "P@20": 0.351,
+      "P@50": 0.351,
+      "P@100": 0.351
+    },
+    "Rule (the queue)": {
+      "P@10": 0.94,
+      "P@20": 0.93,
+      "P@50": 0.924,
+      "P@100": 0.898
+    },
+    "Random forest (confidence column)": {
+      "P@10": 0.98,
+      "P@20": 0.98,
+      "P@50": 0.92,
+      "P@100": 0.884
+    }
+  },
+  "queue_by_action": {
+    "review_title_and_meta": 6891,
+    "check_tracking_first": 1625,
+    "check_data_quality": 194
+  },
+  "missed_clicks_covered": {
+    "20": {
+      "missed_clicks": 1619.0,
+      "share": 0.05
+    },
+    "50": {
+      "missed_clicks": 2822.0,
+      "share": 0.088
+    },
+    "100": {
+      "missed_clicks": 4246.0,
+      "share": 0.132
+    },
+    "500": {
+      "missed_clicks": 10504.0,
+      "share": 0.326
+    },
+    "1000": {
+      "missed_clicks": 14878.0,
+      "share": 0.462
+    },
+    "8710": {
+      "missed_clicks": 32174.0,
+      "share": 1.0
+    }
+  },
+  "archetypes": {
+    "A. Visible under-performer": {
+      "pages": 6891,
+      "action": "review_title_and_meta",
+      "still_under_rate": 0.67
+    },
+    "B. Silent page (0 clicks)": {
+      "pages": 1625,
+      "action": "check_tracking_first",
+      "still_under_rate": 0.67
+    },
+    "C. Broken position data": {
+      "pages": 194,
+      "action": "check_data_quality",
+      "still_under_rate": 0.78
+    },
+    "D. Low CTR, low volume (<1,000 impr.)": {
+      "pages": 21680,
+      "action": "monitor",
+      "still_under_rate": 0.57
+    },
+    "E. Low CTR, deep position (>20)": {
+      "pages": 3598,
+      "action": "out_of_scope_for_ctr_fix",
+      "still_under_rate": 0.12
+    },
+    "F. At or above typical CTR": {
+      "pages": 41829,
+      "action": "no_action",
+      "still_under_rate": 0.2
+    }
+  },
+  "decay_by_age": {
+    "0-90 d": {
+      "pages": 24377.0,
+      "share_below_typical_ctr": 0.442,
+      "share_flagged": 0.11,
+      "still_under_rate": 0.382
+    },
+    "91-180 d": {
+      "pages": 14333.0,
+      "share_below_typical_ctr": 0.464,
+      "share_flagged": 0.123,
+      "still_under_rate": 0.367
+    },
+    "181-270 d": {
+      "pages": 19831.0,
+      "share_below_typical_ctr": 0.43,
+      "share_flagged": 0.119,
+      "still_under_rate": 0.325
+    },
+    "271-365 d": {
+      "pages": 9575.0,
+      "share_below_typical_ctr": 0.444,
+      "share_flagged": 0.102,
+      "still_under_rate": 0.321
+    },
+    "365+ d": {
+      "pages": 7701.0,
+      "share_below_typical_ctr": 0.493,
+      "share_flagged": 0.12,
+      "still_under_rate": 0.361
+    }
+  },
+  "seeds": {
+    "random_forest": 42
+  },
+  "folds": "GroupKFold(5) by client_hash_id"
+}
